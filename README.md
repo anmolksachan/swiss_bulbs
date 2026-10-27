@@ -1,5 +1,7 @@
 # Swiss Bulbs
 
+> **For authorized security research and educational use only. Only run against devices you own or have explicit permission to test. See [SECURITY.md](SECURITY.md).**
+
 Universal WiFi smart bulb controller and multi-protocol LAN security scanner.  
 Swiss-army knife for every major WiFi bulb brand — control, audit, exploit.
 
