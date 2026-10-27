@@ -509,10 +509,11 @@ class TuyaBulb(SmartBulb):
 
     def __init__(self, ip, name="", info=None):
         super().__init__(ip, name, info)
-        self.device_id = (info or {}).get("id", (info or {}).get("gwId", ""))
-        self.local_key = (info or {}).get("key", "")
-        self.version   = str((info or {}).get("version", "3.3"))
-        self._dev      = None
+        self.device_id   = (info or {}).get("id", (info or {}).get("gwId", ""))
+        self.local_key   = (info or {}).get("key", "")
+        self.version     = str((info or {}).get("version", "3.3"))
+        self._dev        = None
+        self._key_prompted = False  # show prompt at most once per session
         if self.device_id and self.local_key:
             self._init_dev()
 
@@ -525,7 +526,8 @@ class TuyaBulb(SmartBulb):
             self._dev = None
 
     def set_local_key(self, key):
-        self.local_key = key
+        self.local_key   = key
+        self._key_prompted = False  # reset so a fresh prompt can show if key init fails
         self._init_dev()
 
     def refresh(self):
@@ -590,6 +592,11 @@ class TuyaBulb(SmartBulb):
         super().apply(params)
 
     def _prompt_key(self):
+        # Only prompt once per session — after the first attempt (skipped or entered),
+        # subsequent calls from loop-effects or multi-target commands silently return.
+        if self._key_prompted:
+            return
+        self._key_prompted = True
         mac = self.info.get("mac", "?") if self.info else "?"
         print(f"\n  {R}Tuya localKey required to control this device.{RST}")
         print(f"  {DIM}Device ID : {self.device_id or '(unknown)'}{RST}")
@@ -607,6 +614,8 @@ class TuyaBulb(SmartBulb):
             if k:
                 self.set_local_key(k)
                 if self._dev:
+                    # Key worked — allow future prompts if key is later cleared
+                    self._key_prompted = False
                     print(f"  {G}localKey set — control enabled.{RST}")
                 else:
                     print(f"  {R}tinytuya init failed. Make sure tinytuya is installed.{RST}")
@@ -3439,7 +3448,6 @@ def main():
             elif cmd in ("effects", "fx"):                   _do_effects()
             elif cmd == "alert":
                 hz = int(args[0]) if args else 2
-                _p(f"Alert — flashing red at {hz}Hz  (Ctrl+C to stop)")
                 fx_alert(hz=hz)
             elif cmd == "music":
                 # music [mode] [sensitivity] [palette] [speed] [floor]
