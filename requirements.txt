@@ -1,0 +1,4 @@
+# swiss_bulbs — required packages
+# Install: pip install -r requirements.txt
+
+tinytuya>=1.13.0       # Tuya LAN protocol (v3.1/3.3/3.5), device scan
