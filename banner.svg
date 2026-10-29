@@ -1,243 +1,317 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 220" width="860" height="220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 200" width="860" height="200">
   <defs>
-    <!-- Background gradient -->
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d1117"/>
-      <stop offset="100%" style="stop-color:#161b22"/>
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
     </linearGradient>
-
-    <!-- Title glow gradient -->
     <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f9c74f"/>
-      <stop offset="40%" style="stop-color:#ffffff"/>
-      <stop offset="100%" style="stop-color:#f9c74f"/>
+      <stop offset="0%" stop-color="#f9c74f"/>
+      <stop offset="50%" stop-color="#fffde7"/>
+      <stop offset="100%" stop-color="#f9c74f"/>
     </linearGradient>
-
-    <!-- Scan line gradient -->
-    <linearGradient id="scanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0"/>
-      <stop offset="50%" style="stop-color:#00ff88;stop-opacity:0.6"/>
-      <stop offset="100%" style="stop-color:#00ff88;stop-opacity:0"/>
+    <linearGradient id="divLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#30363d" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#30363d" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#30363d" stop-opacity="0"/>
     </linearGradient>
-
-    <!-- Bulb glow filter -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="glow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-
-    <filter id="glowStrong" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="glow2">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-
-    <!-- Border gradient -->
-    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f9c74f;stop-opacity:0"/>
-      <stop offset="30%" style="stop-color:#f9c74f;stop-opacity:0.8"/>
-      <stop offset="70%" style="stop-color:#f9c74f;stop-opacity:0.8"/>
-      <stop offset="100%" style="stop-color:#f9c74f;stop-opacity:0"/>
-    </linearGradient>
-
-    <linearGradient id="borderGradV" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f9c74f;stop-opacity:0"/>
-      <stop offset="30%" style="stop-color:#f9c74f;stop-opacity:0.4"/>
-      <stop offset="70%" style="stop-color:#f9c74f;stop-opacity:0.4"/>
-      <stop offset="100%" style="stop-color:#f9c74f;stop-opacity:0"/>
-    </linearGradient>
-
-    <!-- Clip path -->
-    <clipPath id="bannerClip">
-      <rect x="1" y="1" width="858" height="218" rx="12"/>
+    <filter id="softglow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="clip">
+      <rect x="1" y="1" width="858" height="198" rx="12"/>
     </clipPath>
   </defs>
 
   <!-- Background -->
-  <rect width="860" height="220" rx="13" fill="url(#bg)"/>
+  <rect width="860" height="200" rx="13" fill="url(#bg)"/>
 
-  <!-- Subtle grid -->
-  <g clip-path="url(#bannerClip)" opacity="0.04">
-    <line x1="0" y1="40" x2="860" y2="40" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="0" y1="80" x2="860" y2="80" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="0" y1="120" x2="860" y2="120" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="0" y1="160" x2="860" y2="160" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="0" y1="200" x2="860" y2="200" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="100" y1="0" x2="100" y2="220" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="200" y1="0" x2="200" y2="220" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="300" y1="0" x2="300" y2="220" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="400" y1="0" x2="400" y2="220" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="500" y1="0" x2="500" y2="220" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="600" y1="0" x2="600" y2="220" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="700" y1="0" x2="700" y2="220" stroke="#00ff88" stroke-width="0.5"/>
-    <line x1="800" y1="0" x2="800" y2="220" stroke="#00ff88" stroke-width="0.5"/>
+  <!-- Subtle dot grid -->
+  <g clip-path="url(#clip)" opacity="0.06">
+    <g fill="#58a6ff">
+      <!-- row 1 -->
+      <circle cx="50"  cy="30"  r="1"/><circle cx="110" cy="30"  r="1"/><circle cx="170" cy="30"  r="1"/>
+      <circle cx="230" cy="30"  r="1"/><circle cx="290" cy="30"  r="1"/><circle cx="350" cy="30"  r="1"/>
+      <circle cx="410" cy="30"  r="1"/><circle cx="470" cy="30"  r="1"/><circle cx="530" cy="30"  r="1"/>
+      <circle cx="590" cy="30"  r="1"/><circle cx="650" cy="30"  r="1"/><circle cx="710" cy="30"  r="1"/>
+      <circle cx="770" cy="30"  r="1"/><circle cx="830" cy="30"  r="1"/>
+      <!-- row 2 -->
+      <circle cx="50"  cy="80"  r="1"/><circle cx="110" cy="80"  r="1"/><circle cx="170" cy="80"  r="1"/>
+      <circle cx="230" cy="80"  r="1"/><circle cx="290" cy="80"  r="1"/><circle cx="350" cy="80"  r="1"/>
+      <circle cx="410" cy="80"  r="1"/><circle cx="470" cy="80"  r="1"/><circle cx="530" cy="80"  r="1"/>
+      <circle cx="590" cy="80"  r="1"/><circle cx="650" cy="80"  r="1"/><circle cx="710" cy="80"  r="1"/>
+      <circle cx="770" cy="80"  r="1"/><circle cx="830" cy="80"  r="1"/>
+      <!-- row 3 -->
+      <circle cx="50"  cy="130" r="1"/><circle cx="110" cy="130" r="1"/><circle cx="170" cy="130" r="1"/>
+      <circle cx="230" cy="130" r="1"/><circle cx="290" cy="130" r="1"/><circle cx="350" cy="130" r="1"/>
+      <circle cx="410" cy="130" r="1"/><circle cx="470" cy="130" r="1"/><circle cx="530" cy="130" r="1"/>
+      <circle cx="590" cy="130" r="1"/><circle cx="650" cy="130" r="1"/><circle cx="710" cy="130" r="1"/>
+      <circle cx="770" cy="130" r="1"/><circle cx="830" cy="130" r="1"/>
+      <!-- row 4 -->
+      <circle cx="50"  cy="178" r="1"/><circle cx="110" cy="178" r="1"/><circle cx="170" cy="178" r="1"/>
+      <circle cx="230" cy="178" r="1"/><circle cx="290" cy="178" r="1"/><circle cx="350" cy="178" r="1"/>
+      <circle cx="410" cy="178" r="1"/><circle cx="470" cy="178" r="1"/><circle cx="530" cy="178" r="1"/>
+      <circle cx="590" cy="178" r="1"/><circle cx="650" cy="178" r="1"/><circle cx="710" cy="178" r="1"/>
+      <circle cx="770" cy="178" r="1"/><circle cx="830" cy="178" r="1"/>
+    </g>
   </g>
 
-  <!-- Animated scan line -->
-  <g clip-path="url(#bannerClip)">
-    <rect x="0" y="0" width="860" height="3" fill="url(#scanGrad)" opacity="0.7">
-      <animateTransform attributeName="transform" type="translate" from="0,0" to="0,220" dur="3s" repeatCount="indefinite"/>
-    </rect>
+  <!-- ═══════════════════════════════════════════════════════
+       LEFT PANEL — hexagonal protocol network (x: 0–215)
+       Hub at (107, 100)
+       6 nodes: WiZ(0°) Yeelight(60°) LIFX(120°) Kasa(180°) MagicHome(240°) Tuya(300°)
+       ═══════════════════════════════════════════════════════ -->
+
+  <!-- Radar pulse rings from hub -->
+  <g transform="translate(107,100)" clip-path="url(#clip)">
+    <circle cx="0" cy="0" r="0" fill="none" stroke="#00ff88" stroke-width="1" opacity="0">
+      <animate attributeName="r"       values="0;70"  dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="0" fill="none" stroke="#00ff88" stroke-width="1" opacity="0">
+      <animate attributeName="r"       values="0;70"  dur="2.5s" begin="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0" dur="2.5s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="0" fill="none" stroke="#00ff88" stroke-width="1" opacity="0">
+      <animate attributeName="r"       values="0;70"  dur="2.5s" begin="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0" dur="2.5s" begin="1.6s" repeatCount="indefinite"/>
+    </circle>
   </g>
 
-  <!-- ── Bulb icons row ── -->
-  <!-- WiZ bulb (yellow) -->
-  <g transform="translate(68, 110)" filter="url(#glow)">
-    <!-- bulb shape -->
-    <ellipse cx="0" cy="-12" rx="11" ry="13" fill="#f9c74f" opacity="0.15">
-      <animate attributeName="opacity" values="0.15;0.5;0.15" dur="2.1s" begin="0s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="0" cy="-12" rx="7" ry="9" fill="#f9c74f">
+  <!-- Connection lines from hub to protocol nodes -->
+  <!-- WiZ   hub(107,100) → (157,100) -->
+  <line x1="107" y1="100" x2="157" y2="100" stroke="#f9c74f" stroke-width="0.8" opacity="0.3"/>
+  <!-- Yeelight hub(107,100) → (132,57) -->
+  <line x1="107" y1="100" x2="132" y2="57"  stroke="#c77dff" stroke-width="0.8" opacity="0.3"/>
+  <!-- LIFX    hub(107,100) → (82,57) -->
+  <line x1="107" y1="100" x2="82"  y2="57"  stroke="#4cc9f0" stroke-width="0.8" opacity="0.3"/>
+  <!-- Kasa    hub(107,100) → (57,100) -->
+  <line x1="107" y1="100" x2="57"  y2="100" stroke="#52b788" stroke-width="0.8" opacity="0.3"/>
+  <!-- MagicHome hub(107,100) → (82,143) -->
+  <line x1="107" y1="100" x2="82"  y2="143" stroke="#4895ef" stroke-width="0.8" opacity="0.3"/>
+  <!-- Tuya   hub(107,100) → (132,143) -->
+  <line x1="107" y1="100" x2="132" y2="143" stroke="#ef233c" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Animated packets along each line -->
+  <!-- WiZ packet -->
+  <circle r="2.5" fill="#f9c74f" filter="url(#softglow)">
+    <animateMotion path="M107,100 L157,100" dur="1.4s" begin="0s"    repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.8;1" dur="1.4s" begin="0s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Yeelight packet -->
+  <circle r="2.5" fill="#c77dff" filter="url(#softglow)">
+    <animateMotion path="M107,100 L132,57" dur="1.4s" begin="0.23s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.8;1" dur="1.4s" begin="0.23s" repeatCount="indefinite"/>
+  </circle>
+  <!-- LIFX packet -->
+  <circle r="2.5" fill="#4cc9f0" filter="url(#softglow)">
+    <animateMotion path="M107,100 L82,57" dur="1.4s" begin="0.46s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.8;1" dur="1.4s" begin="0.46s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Kasa packet -->
+  <circle r="2.5" fill="#52b788" filter="url(#softglow)">
+    <animateMotion path="M107,100 L57,100" dur="1.4s" begin="0.69s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.8;1" dur="1.4s" begin="0.69s" repeatCount="indefinite"/>
+  </circle>
+  <!-- MagicHome packet -->
+  <circle r="2.5" fill="#4895ef" filter="url(#softglow)">
+    <animateMotion path="M107,100 L82,143" dur="1.4s" begin="0.92s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.8;1" dur="1.4s" begin="0.92s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Tuya packet -->
+  <circle r="2.5" fill="#ef233c" filter="url(#softglow)">
+    <animateMotion path="M107,100 L132,143" dur="1.4s" begin="1.15s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.8;1" dur="1.4s" begin="1.15s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Hub node -->
+  <circle cx="107" cy="100" r="7" fill="#1a2332" stroke="#00ff88" stroke-width="1.5" filter="url(#softglow)"/>
+  <circle cx="107" cy="100" r="3" fill="#00ff88">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Protocol nodes with labels -->
+  <!-- WiZ (right, 0°) at (157, 100) -->
+  <g transform="translate(157,100)" filter="url(#softglow)">
+    <circle r="7" fill="#1a1f26" stroke="#f9c74f" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="2.1s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#f9c74f">
       <animate attributeName="opacity" values="0.7;1;0.7" dur="2.1s" begin="0s" repeatCount="indefinite"/>
-    </ellipse>
-    <rect x="-4" y="-2" width="8" height="3" rx="1" fill="#f9c74f" opacity="0.9"/>
-    <rect x="-3" y="2" width="6" height="2" rx="1" fill="#888" opacity="0.8"/>
-    <text x="0" y="16" text-anchor="middle" font-family="monospace" font-size="8" fill="#f9c74f" opacity="0.9">WiZ</text>
+    </circle>
+    <text x="14" y="4" font-family="monospace" font-size="9" fill="#f9c74f" opacity="0.9">WiZ</text>
   </g>
-
-  <!-- Yeelight bulb (magenta) -->
-  <g transform="translate(138, 110)" filter="url(#glow)">
-    <ellipse cx="0" cy="-12" rx="11" ry="13" fill="#c77dff" opacity="0.15">
-      <animate attributeName="opacity" values="0.15;0.5;0.15" dur="1.8s" begin="0.3s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="0" cy="-12" rx="7" ry="9" fill="#c77dff">
+  <!-- Yeelight (upper-right, 60°) at (132, 57) -->
+  <g transform="translate(132,57)" filter="url(#softglow)">
+    <circle r="7" fill="#1a1f26" stroke="#c77dff" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.8s" begin="0.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#c77dff">
       <animate attributeName="opacity" values="0.7;1;0.7" dur="1.8s" begin="0.3s" repeatCount="indefinite"/>
-    </ellipse>
-    <rect x="-4" y="-2" width="8" height="3" rx="1" fill="#c77dff" opacity="0.9"/>
-    <rect x="-3" y="2" width="6" height="2" rx="1" fill="#888" opacity="0.8"/>
-    <text x="0" y="16" text-anchor="middle" font-family="monospace" font-size="7" fill="#c77dff" opacity="0.9">Yeelight</text>
+    </circle>
+    <text x="11" y="-6" font-family="monospace" font-size="8" fill="#c77dff" opacity="0.9">Yeelight</text>
   </g>
-
-  <!-- LIFX bulb (cyan) -->
-  <g transform="translate(208, 110)" filter="url(#glow)">
-    <ellipse cx="0" cy="-12" rx="11" ry="13" fill="#4cc9f0" opacity="0.15">
-      <animate attributeName="opacity" values="0.15;0.5;0.15" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="0" cy="-12" rx="7" ry="9" fill="#4cc9f0">
+  <!-- LIFX (upper-left, 120°) at (82, 57) -->
+  <g transform="translate(82,57)" filter="url(#softglow)">
+    <circle r="7" fill="#1a1f26" stroke="#4cc9f0" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#4cc9f0">
       <animate attributeName="opacity" values="0.7;1;0.7" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
-    </ellipse>
-    <rect x="-4" y="-2" width="8" height="3" rx="1" fill="#4cc9f0" opacity="0.9"/>
-    <rect x="-3" y="2" width="6" height="2" rx="1" fill="#888" opacity="0.8"/>
-    <text x="0" y="16" text-anchor="middle" font-family="monospace" font-size="8" fill="#4cc9f0" opacity="0.9">LIFX</text>
+    </circle>
+    <text x="-33" y="-6" font-family="monospace" font-size="9" fill="#4cc9f0" opacity="0.9">LIFX</text>
   </g>
-
-  <!-- Kasa bulb (green) -->
-  <g transform="translate(278, 110)" filter="url(#glow)">
-    <ellipse cx="0" cy="-12" rx="11" ry="13" fill="#52b788" opacity="0.15">
-      <animate attributeName="opacity" values="0.15;0.5;0.15" dur="1.6s" begin="0.9s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="0" cy="-12" rx="7" ry="9" fill="#52b788">
+  <!-- Kasa (left, 180°) at (57, 100) -->
+  <g transform="translate(57,100)" filter="url(#softglow)">
+    <circle r="7" fill="#1a1f26" stroke="#52b788" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.6s" begin="0.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#52b788">
       <animate attributeName="opacity" values="0.7;1;0.7" dur="1.6s" begin="0.9s" repeatCount="indefinite"/>
-    </ellipse>
-    <rect x="-4" y="-2" width="8" height="3" rx="1" fill="#52b788" opacity="0.9"/>
-    <rect x="-3" y="2" width="6" height="2" rx="1" fill="#888" opacity="0.8"/>
-    <text x="0" y="16" text-anchor="middle" font-family="monospace" font-size="8" fill="#52b788" opacity="0.9">Kasa</text>
+    </circle>
+    <text x="-37" y="4" font-family="monospace" font-size="9" fill="#52b788" opacity="0.9">Kasa</text>
   </g>
-
-  <!-- MagicHome bulb (blue) -->
-  <g transform="translate(348, 110)" filter="url(#glow)">
-    <ellipse cx="0" cy="-12" rx="11" ry="13" fill="#4895ef" opacity="0.15">
-      <animate attributeName="opacity" values="0.15;0.5;0.15" dur="2.7s" begin="1.2s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="0" cy="-12" rx="7" ry="9" fill="#4895ef">
+  <!-- MagicHome (lower-left, 240°) at (82, 143) -->
+  <g transform="translate(82,143)" filter="url(#softglow)">
+    <circle r="7" fill="#1a1f26" stroke="#4895ef" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="2.7s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#4895ef">
       <animate attributeName="opacity" values="0.7;1;0.7" dur="2.7s" begin="1.2s" repeatCount="indefinite"/>
-    </ellipse>
-    <rect x="-4" y="-2" width="8" height="3" rx="1" fill="#4895ef" opacity="0.9"/>
-    <rect x="-3" y="2" width="6" height="2" rx="1" fill="#888" opacity="0.8"/>
-    <text x="0" y="16" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#4895ef" opacity="0.9">Magic</text>
+    </circle>
+    <text x="-53" y="20" font-family="monospace" font-size="8" fill="#4895ef" opacity="0.9">MagicHome</text>
   </g>
-
-  <!-- Tuya bulb (red) -->
-  <g transform="translate(418, 110)" filter="url(#glow)">
-    <ellipse cx="0" cy="-12" rx="11" ry="13" fill="#ef233c" opacity="0.15">
-      <animate attributeName="opacity" values="0.15;0.5;0.15" dur="2.2s" begin="1.5s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="0" cy="-12" rx="7" ry="9" fill="#ef233c">
+  <!-- Tuya (lower-right, 300°) at (132, 143) -->
+  <g transform="translate(132,143)" filter="url(#softglow)">
+    <circle r="7" fill="#1a1f26" stroke="#ef233c" stroke-width="1.5">
+      <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="2.2s" begin="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#ef233c">
       <animate attributeName="opacity" values="0.7;1;0.7" dur="2.2s" begin="1.5s" repeatCount="indefinite"/>
-    </ellipse>
-    <rect x="-4" y="-2" width="8" height="3" rx="1" fill="#ef233c" opacity="0.9"/>
-    <rect x="-3" y="2" width="6" height="2" rx="1" fill="#888" opacity="0.8"/>
-    <text x="0" y="16" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef233c" opacity="0.9">Tuya</text>
+    </circle>
+    <text x="11" y="20" font-family="monospace" font-size="9" fill="#ef233c" opacity="0.9">Tuya</text>
   </g>
 
-  <!-- Divider line -->
-  <line x1="460" y1="50" x2="460" y2="170" stroke="#30363d" stroke-width="1"/>
+  <!-- Vertical divider -->
+  <line x1="215" y1="20" x2="215" y2="180" stroke="#21262d" stroke-width="1"/>
 
-  <!-- ── Right side: title + text ── -->
+  <!-- ═══════════════════════════════════════════════════════
+       RIGHT PANEL — title, subtitle, badges (x: 225–860)
+       Center of right panel: x = 225 + 635/2 = 542
+       ═══════════════════════════════════════════════════════ -->
 
-  <!-- swiss_bulbs title -->
-  <text x="560" y="85" text-anchor="middle"
-        font-family="'Courier New', monospace" font-size="42" font-weight="bold"
-        fill="url(#titleGrad)" filter="url(#glowStrong)" letter-spacing="2">
+  <!-- Title -->
+  <text x="542" y="82"
+        text-anchor="middle"
+        font-family="'Courier New', Courier, monospace"
+        font-size="46"
+        font-weight="bold"
+        fill="url(#titleGrad)"
+        filter="url(#glow2)"
+        letter-spacing="1">
     swiss_bulbs
-    <animate attributeName="opacity" values="0.85;1;0.85" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;1;0.9" dur="3s" repeatCount="indefinite"/>
   </text>
 
   <!-- Subtitle -->
-  <text x="560" y="112" text-anchor="middle"
-        font-family="'Courier New', monospace" font-size="13" fill="#8b949e" letter-spacing="1">
-    universal WiFi bulb controller &amp; LAN security scanner
+  <text x="542" y="107"
+        text-anchor="middle"
+        font-family="'Courier New', Courier, monospace"
+        font-size="12.5"
+        fill="#8b949e"
+        letter-spacing="0.5">
+    Universal WiFi bulb controller  ·  LAN security scanner
   </text>
 
-  <!-- Protocol list -->
-  <text x="480" y="140" font-family="'Courier New', monospace" font-size="11" fill="#30363d">────────────────────────────────────</text>
+  <!-- Divider -->
+  <line x1="262" y1="120" x2="822" y2="120" stroke="url(#divLine)" stroke-width="0.8"/>
 
-  <text x="484" y="158" font-family="'Courier New', monospace" font-size="11.5">
-    <tspan fill="#f9c74f">WiZ</tspan>
-    <tspan fill="#444d56"> · </tspan>
-    <tspan fill="#c77dff">Yeelight</tspan>
-    <tspan fill="#444d56"> · </tspan>
-    <tspan fill="#4cc9f0">LIFX</tspan>
-    <tspan fill="#444d56"> · </tspan>
-    <tspan fill="#52b788">Kasa</tspan>
-    <tspan fill="#444d56"> · </tspan>
-    <tspan fill="#4895ef">MagicHome</tspan>
-    <tspan fill="#444d56"> · </tspan>
-    <tspan fill="#ef233c">Tuya</tspan>
+  <!-- Protocol badge pills
+       Widths: WiZ=62 Yeelight=80 LIFX=58 Kasa=64 MagicHome=95 Tuya=62
+       Total = 421 + gaps 5×12=60 = 481
+       Start = 225 + (635-481)/2 = 225+77 = 302  -->
+
+  <!-- WiZ pill: x=302 -->
+  <rect x="302" y="132" width="62" height="22" rx="5"
+        fill="#f9c74f" fill-opacity="0.1" stroke="#f9c74f" stroke-width="1" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="0s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity"   values="0.05;0.2;0.05" dur="3s" begin="0s" repeatCount="indefinite"/>
+  </rect>
+  <text x="333" y="147" text-anchor="middle"
+        font-family="monospace" font-size="11" fill="#f9c74f" font-weight="bold">WiZ</text>
+
+  <!-- Yeelight pill: x=376 -->
+  <rect x="376" y="132" width="80" height="22" rx="5"
+        fill="#c77dff" fill-opacity="0.1" stroke="#c77dff" stroke-width="1" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity"   values="0.05;0.2;0.05" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="416" y="147" text-anchor="middle"
+        font-family="monospace" font-size="11" fill="#c77dff" font-weight="bold">Yeelight</text>
+
+  <!-- LIFX pill: x=468 -->
+  <rect x="468" y="132" width="58" height="22" rx="5"
+        fill="#4cc9f0" fill-opacity="0.1" stroke="#4cc9f0" stroke-width="1" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="1s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity"   values="0.05;0.2;0.05" dur="3s" begin="1s" repeatCount="indefinite"/>
+  </rect>
+  <text x="497" y="147" text-anchor="middle"
+        font-family="monospace" font-size="11" fill="#4cc9f0" font-weight="bold">LIFX</text>
+
+  <!-- Kasa pill: x=538 -->
+  <rect x="538" y="132" width="64" height="22" rx="5"
+        fill="#52b788" fill-opacity="0.1" stroke="#52b788" stroke-width="1" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity"   values="0.05;0.2;0.05" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="570" y="147" text-anchor="middle"
+        font-family="monospace" font-size="11" fill="#52b788" font-weight="bold">Kasa</text>
+
+  <!-- MagicHome pill: x=614 -->
+  <rect x="614" y="132" width="95" height="22" rx="5"
+        fill="#4895ef" fill-opacity="0.1" stroke="#4895ef" stroke-width="1" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="2s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity"   values="0.05;0.2;0.05" dur="3s" begin="2s" repeatCount="indefinite"/>
+  </rect>
+  <text x="661" y="147" text-anchor="middle"
+        font-family="monospace" font-size="11" fill="#4895ef" font-weight="bold">MagicHome</text>
+
+  <!-- Tuya pill: x=721 -->
+  <rect x="721" y="132" width="62" height="22" rx="5"
+        fill="#ef233c" fill-opacity="0.1" stroke="#ef233c" stroke-width="1" stroke-opacity="0.5">
+    <animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="3s" begin="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity"   values="0.05;0.2;0.05" dur="3s" begin="2.5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="752" y="147" text-anchor="middle"
+        font-family="monospace" font-size="11" fill="#ef233c" font-weight="bold">Tuya</text>
+
+  <!-- Bottom row: author · CVE -->
+  <text x="542" y="174"
+        text-anchor="middle"
+        font-family="monospace" font-size="10.5" fill="#444d56">
+    <tspan fill="#58a6ff">@FR13ND0x7F</tspan>
+    <tspan fill="#30363d">  ·  </tspan>
+    <tspan fill="#444d56">extends </tspan>
+    <tspan fill="#f9c74f" opacity="0.7">CVE-2019-18980</tspan>
+    <tspan fill="#30363d">  ·  </tspan>
+    <tspan fill="#444d56">no credentials required</tspan>
   </text>
 
-  <!-- CVE badge -->
-  <rect x="484" y="168" width="120" height="20" rx="4" fill="#1a1f26" stroke="#f9c74f" stroke-width="0.8" stroke-opacity="0.6"/>
-  <text x="544" y="182" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#f9c74f" opacity="0.9">CVE-2019-18980</text>
+  <!-- Outer border -->
+  <rect x="1" y="1" width="858" height="198" rx="12"
+        fill="none" stroke="#21262d" stroke-width="1.5"/>
 
-  <!-- Author -->
-  <text x="620" y="182" font-family="'Courier New', monospace" font-size="10" fill="#444d56">@FR13ND0x7F</text>
-
-  <!-- Animated UDP packet dots travelling left→right between bulbs -->
-  <g clip-path="url(#bannerClip)">
-    <!-- packet 1 -->
-    <circle cx="0" cy="110" r="2" fill="#00ff88" opacity="0.8">
-      <animate attributeName="cx" values="68;418" dur="2s" begin="0s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.1;0.9;1" dur="2s" begin="0s" repeatCount="indefinite"/>
-    </circle>
-    <!-- packet 2 -->
-    <circle cx="0" cy="107" r="1.5" fill="#f9c74f" opacity="0.6">
-      <animate attributeName="cx" values="418;68" dur="1.8s" begin="0.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.1;0.9;1" dur="1.8s" begin="0.5s" repeatCount="indefinite"/>
-    </circle>
-    <!-- packet 3 -->
-    <circle cx="0" cy="113" r="1.5" fill="#4cc9f0" opacity="0.6">
-      <animate attributeName="cx" values="138;348" dur="1.5s" begin="1s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.1;0.9;1" dur="1.5s" begin="1s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-
-  <!-- Border -->
-  <rect x="1" y="1" width="858" height="218" rx="12" fill="none" stroke="url(#borderGrad)" stroke-width="1.2"/>
-  <rect x="1" y="1" width="858" height="218" rx="12" fill="none" stroke="url(#borderGradV)" stroke-width="1.2"/>
-
-  <!-- Corner accents -->
-  <line x1="1" y1="30" x2="1" y2="1" stroke="#f9c74f" stroke-width="1.5" stroke-opacity="0.6"/>
-  <line x1="1" y1="1" x2="30" y2="1" stroke="#f9c74f" stroke-width="1.5" stroke-opacity="0.6"/>
-  <line x1="860" y1="30" x2="860" y2="1" stroke="#f9c74f" stroke-width="1.5" stroke-opacity="0.6"/>
-  <line x1="830" y1="1" x2="860" y2="1" stroke="#f9c74f" stroke-width="1.5" stroke-opacity="0.6"/>
-  <line x1="1" y1="190" x2="1" y2="219" stroke="#f9c74f" stroke-width="1.5" stroke-opacity="0.6"/>
-  <line x1="1" y1="219" x2="30" y2="219" stroke="#f9c74f" stroke-width="1.5" stroke-opacity="0.6"/>
-  <line x1="860" y1="190" x2="860" y2="219" stroke="#f9c74f" stroke-width="1.5" stroke-opacity="0.6"/>
-  <line x1="830" y1="219" x2="860" y2="219" stroke="#f9c74f" stroke-width="1.5" stroke-opacity="0.6"/>
+  <!-- Corner brackets -->
+  <polyline points="1,28 1,1 28,1"   fill="none" stroke="#f9c74f" stroke-width="1.8" stroke-opacity="0.7"/>
+  <polyline points="832,1 859,1 859,28"  fill="none" stroke="#f9c74f" stroke-width="1.8" stroke-opacity="0.7"/>
+  <polyline points="1,172 1,199 28,199"  fill="none" stroke="#f9c74f" stroke-width="1.8" stroke-opacity="0.7"/>
+  <polyline points="832,199 859,199 859,172" fill="none" stroke="#f9c74f" stroke-width="1.8" stroke-opacity="0.7"/>
 </svg>
