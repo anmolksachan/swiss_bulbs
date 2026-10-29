@@ -1,5 +1,9 @@
 # Swiss Bulbs
 
+<p align="center">
+  <img src="banner.svg" alt="swiss_bulbs banner" width="860"/>
+</p>
+
 > **For authorized security research and educational use only. Only run against devices you own or have explicit permission to test. See [SECURITY.md](SECURITY.md).**
 
 Universal WiFi smart bulb controller and multi-protocol LAN security scanner.  
